@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Tutorial concepts
+
+- createContext hook: Its provider is used for passing data from parent to any child level
+- useContext: This is used to access it's value at any child level
+- localStorage: Use to store key value pair in the web. It is available even if the user shuts the browser. Available till the user clears cache
+- useEffect hook: It is activated when the specified state changes.
