@@ -10,25 +10,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import fetcher from "@/lib/fetcher";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import useSWR from "swr";
-
-const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  // If the status code is not in the range 200-299,
-  // we still try to parse and throw it.
-  if (!res.ok) {
-    const error = new Error("An error occurred while fetching the data.");
-    // Attach extra info to the error object.
-    error.info = await res.json();
-    error.status = res.status;
-    throw error;
-  }
-
-  return res.json();
-};
 
 const WAITLIST_API_URL = "/api/waitlists/";
 export default function WaitlistTable() {
@@ -52,6 +37,7 @@ export default function WaitlistTable() {
         <TableRow>
           <TableHead className="w-[100px]">ID</TableHead>
           <TableHead>Email</TableHead>
+          <TableHead>Description</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -63,6 +49,7 @@ export default function WaitlistTable() {
           >
             <TableCell className="font-medium">{item.id}</TableCell>
             <TableCell className="font-medium">{item.email}</TableCell>
+            <TableCell className="font-medium">{item.description}</TableCell>
           </TableRow>
         ))}
       </TableBody>
